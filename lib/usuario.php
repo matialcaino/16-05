@@ -1,16 +1,30 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of usuario
- *
- * @author cetecom
- */
 class usuario {
-    //put your code here
+    
+    var $idusuario;
+    var $nombre;
+    var $clave;
+    
+    function VerificaUsuario(){
+        $oConn = new conexion();
+        
+        if($oConn->Conectar())
+            $db = $oConn->objoonn;
+        else
+            return false;
+        
+        $sql="SELECT + FROM acceso WHERE nomusuario='$this->nombre'";
+        
+        $resultado = $db->query($sql);
+        
+        if($resultado->num_rows>=1)
+            return true;
+        else 
+            return false;
+        
+                
+    }
 }
+
